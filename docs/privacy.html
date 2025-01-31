@@ -3,73 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Privacy Policy - NelliData</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
+            background-color: #121212;
             color: white;
-            padding: 15px;
-            text-align: center;
         }
-        footer {
-            background-color: #333;
+        .navbar {
+            background-color: #000;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-logo img {
+            width: 150px;
+        }
+        .navbar-links {
+            list-style: none;
+            display: flex;
+        }
+        .navbar-links li {
+            margin-left: 20px;
+        }
+        .navbar-links a {
             color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .navbar-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+        }
+        .content {
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .content h1 {
             text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            color: gold;
         }
-        h1 {
+        .footer {
+            background-color: #000;
             text-align: center;
-            color: #4CAF50;
+            padding: 20px;
         }
-        h2 {
-            color: #333;
-        }
-        p, ul {
-            margin: 0 20px;
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background-color: #000;
+                padding: 10px 0;
+            }
+            .navbar-links.active {
+                display: flex;
+            }
+            .navbar-toggle {
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to NelliData</h1>
-        <p>Your go-to tool for actionable insights, data analysis, and TikTok content creation.</p>
-    </header>
-
-    <h1>Privacy Policy</h1>
-    <p>Your privacy is important to us. This Privacy Policy explains how NelliData ("we") collects, uses, and protects your data.</p>
-
-    <h2>1. Data We Collect</h2>
-    <p>When you use NelliData, we may access the following data through the TikTok API:</p>
-    <ul>
-        <li>TikTok profile information (e.g., username, followers, following).</li>
-        <li>Video metadata (e.g., titles, likes, comments).</li>
-        <li>Analytics data for insights and trend analysis.</li>
-    </ul>
-
-    <h2>2. Purpose of Data Collection</h2>
-    <p>We access this data to provide video management tools, content analysis, and automation features. Your data is used solely for the purposes of this app and is not shared with third parties.</p>
-
-    <h2>3. Data Security</h2>
-    <p>We implement measures to protect your data, such as secure API token handling. NelliData does not store sensitive account credentials (e.g., usernames, passwords).</p>
-
-    <h2>4. Your Rights</h2>
-    <p>You can revoke NelliData’s access to your data at any time through the TikTok app or your TikTok account settings.</p>
-
-    <h2>5. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy. Changes will be posted on this page, and continued use of NelliData indicates your acceptance of updates.</p>
-
-    <p>If you have any questions or concerns, please contact us at <a href="mailto:support@nellidata.io">support@nellidata.io</a>.</p>
-
-    <footer>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <img src="assets/NelliData Logo White.png" alt="NelliData Logo">
+        </a>
+        <ul class="navbar-links" id="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+        </ul>
+        <div class="navbar-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+    
+    <section class="content">
+        <h1>Privacy Policy</h1>
+        <p>Your privacy is important to us. This Privacy Policy explains how NelliData collects, uses, and protects your data.</p>
+        
+        <h2>1. Data We Collect</h2>
+        <p>When you use NelliData, we may access the following data through the TikTok API:</p>
+        <ul>
+            <li>TikTok profile information (e.g., username, followers, following).</li>
+            <li>Video metadata (e.g., titles, likes, comments).</li>
+            <li>Analytics data for insights and trend analysis.</li>
+        </ul>
+        
+        <h2>2. Purpose of Data Collection</h2>
+        <p>We access this data to provide video management tools, content analysis, and automation features. Your data is used solely for the purposes of this app and is not shared with third parties.</p>
+        
+        <h2>3. Data Security</h2>
+        <p>We implement measures to protect your data, such as secure API token handling. NelliData does not store sensitive account credentials (e.g., usernames, passwords).</p>
+        
+        <h2>4. Your Rights</h2>
+        <p>You can revoke NelliData’s access to your data at any time through the TikTok app or your TikTok account settings.</p>
+        
+        <h2>5. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy. Changes will be posted on this page, and continued use of NelliData indicates your acceptance of updates.</p>
+    </section>
+    
+    <footer class="footer">
         <p>&copy; 2025 NelliData. All rights reserved.</p>
     </footer>
+    
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbarLinks = document.getElementById('navbar-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
