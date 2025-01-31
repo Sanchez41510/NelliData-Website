@@ -34,6 +34,17 @@
             text-decoration: none;
             font-weight: bold;
         }
+        .navbar-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+        }
         .hero {
             text-align: center;
             padding: 100px 20px;
@@ -62,6 +73,32 @@
             text-align: center;
             padding: 20px;
         }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background-color: #000;
+                padding: 10px 0;
+            }
+            .navbar-links.active {
+                display: flex;
+            }
+            .navbar-toggle {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -69,11 +106,16 @@
         <a href="index.html" class="navbar-logo">
             <img src="assets/NelliData Logo White.png" alt="NelliData Logo">
         </a>
-        <ul class="navbar-links">
+        <ul class="navbar-links" id="navbar-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="privacy.html">Privacy</a></li>
             <li><a href="terms.html">Terms</a></li>
         </ul>
+        <div class="navbar-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
     
     <section class="hero">
@@ -99,5 +141,14 @@
     <footer class="footer">
         <p>&copy; 2025 NelliData. All rights reserved.</p>
     </footer>
+    
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbarLinks = document.getElementById('navbar-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
